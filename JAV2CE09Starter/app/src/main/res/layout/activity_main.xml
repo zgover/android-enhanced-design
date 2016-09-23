@@ -18,10 +18,10 @@
             android:id="@+id/toolbar"
             android:background="@android:color/darker_gray"/>
 
-        <Spinner
-            android:id="@+id/filterSpinner"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent" />
+        <!--<Spinner-->
+            <!--android:id="@+id/filterSpinner"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_width="match_parent" />-->
 
         <LinearLayout android:id="@+id/container"
             android:layout_width="match_parent"
@@ -36,8 +36,13 @@
             android:layout_margin="16dp"
             android:src="@drawable/ic_add"
             android:onClick="addPerson"
-            app:layout_anchor="@id/container"
-            app:layout_anchorGravity="bottom|right|end" />
+            app:layout_anchorGravity="top|right" />
+
+        <com.roughike.bottombar.BottomBar
+            android:id="@+id/bottomBar"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            app:bb_tabXmlResource="@xml/bottombar_tabs" />
 
     </LinearLayout>
 

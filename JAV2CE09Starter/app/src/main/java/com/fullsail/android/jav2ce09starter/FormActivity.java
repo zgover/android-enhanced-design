@@ -34,7 +34,6 @@ public class FormActivity extends AppCompatActivity {
 
         ab.setTitle("Add Person");
         ab.setHomeAsUpIndicator(R.mipmap.ic_launcher);
-        ab.setDisplayShowHomeEnabled(true);
         ab.setDisplayHomeAsUpEnabled(true);
     }
 

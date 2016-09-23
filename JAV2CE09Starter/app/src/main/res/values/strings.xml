@@ -14,6 +14,8 @@
     <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="no_people_available">No People Available</string>
+    <string name="less_than">&#60; 30</string>
+    <string name="greater_than">&#62; 30</string>
 
     <string-array name="spinner_values">
         <item>Show All</item>

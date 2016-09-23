@@ -5,17 +5,18 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.annotation.IdRes;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
 import com.fullsail.android.jav2ce09starter.fragment.PersonListFragment;
 import com.fullsail.android.jav2ce09starter.object.Person;
 import com.fullsail.android.jav2ce09starter.util.PersonUtil;
+import com.roughike.bottombar.BottomBar;
+import com.roughike.bottombar.OnTabSelectListener;
 
 public class MainActivity extends AppCompatActivity implements
         PersonListFragment.OnPersonInteractionListener, AdapterView.OnItemSelectedListener {
@@ -29,11 +30,11 @@ public class MainActivity extends AppCompatActivity implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Setting up the filter options spinner.
-        Spinner filterSpinner = (Spinner)findViewById(R.id.filterSpinner);
-        String[] filterValues = getResources().getStringArray(R.array.spinner_values);
-        filterSpinner.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, filterValues));
-        filterSpinner.setOnItemSelectedListener(this);
+//        // Setting up the filter options spinner.
+//        Spinner filterSpinner = (Spinner)findViewById(R.id.filterSpinner);
+//        String[] filterValues = getResources().getStringArray(R.array.spinner_values);
+//        filterSpinner.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, filterValues));
+//        filterSpinner.setOnItemSelectedListener(this);
 
         // Assigning the default filter.
         mCurrentFilter = PersonListFragment.FILTER_ALL;
@@ -54,8 +55,22 @@ public class MainActivity extends AppCompatActivity implements
 
         ab.setTitle("People");
         ab.setHomeAsUpIndicator(R.mipmap.ic_launcher);
-        ab.setDisplayShowHomeEnabled(true);
         ab.setDisplayHomeAsUpEnabled(true);
+
+        ((BottomBar) findViewById(R.id.bottomBar)).setOnTabSelectListener(new OnTabSelectListener() {
+            @Override
+            public void onTabSelected(@IdRes int tabId) {
+                if (tabId == R.id.all) {
+                    mCurrentFilter = 0;
+                } else if (tabId == R.id.less_than) {
+                    mCurrentFilter = 1;
+                } else if (tabId == R.id.greater_than) {
+                    mCurrentFilter = 2;
+                }
+
+                refreshList();
+            }
+        });
     }
 
     @Override
@@ -71,7 +86,7 @@ public class MainActivity extends AppCompatActivity implements
     @Override
     public void onPersonClicked(Person p) {
         final Snackbar snack = Snackbar.make(findViewById(R.id.mainActivityCoord), p.getFullName(), Snackbar.LENGTH_LONG);
-        snack.setAction("Dimiss", new View.OnClickListener() {
+        snack.setAction("Dismiss", new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 snack.dismiss();
