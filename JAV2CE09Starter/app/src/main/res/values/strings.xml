@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">JAV2 CE09 Starter</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="age">Age</string>
+    <string name="save">Save</string>
+    <string name="form_incomplete">Form Incomplete</string>
+    <string name="please_complete_form">Please fill out the form completely before saving.</string>
+    <string name="ok">OK</string>
+    <string name="complete_form">Complete the Form</string>
+    <string name="add_person">Add Person</string>
+    <string name="confirm_delete">Confirm Delete</string>
+    <string name="confirm_delete_message">Are you sure you want to delete this person?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="no_people_available">No People Available</string>
+
+    <string-array name="spinner_values">
+        <item>Show All</item>
+        <item>Under 30</item>
+        <item>30 And Older</item>
+    </string-array>
+</resources>
