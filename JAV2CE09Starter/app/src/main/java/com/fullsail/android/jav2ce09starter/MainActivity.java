@@ -3,16 +3,16 @@ package com.fullsail.android.jav2ce09starter;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
-import android.widget.Toast;
-
 import com.fullsail.android.jav2ce09starter.fragment.PersonListFragment;
 import com.fullsail.android.jav2ce09starter.object.Person;
 import com.fullsail.android.jav2ce09starter.util.PersonUtil;
@@ -76,7 +76,13 @@ public class MainActivity extends AppCompatActivity implements
 
     @Override
     public void onPersonClicked(Person p) {
-        Toast.makeText(this, p.getFullName(), Toast.LENGTH_SHORT).show();
+        final Snackbar snack = Snackbar.make(findViewById(R.id.mainActivityCoord), p.getFullName(), Snackbar.LENGTH_LONG);
+        snack.setAction("Dimiss", new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                snack.dismiss();
+            }
+        }).setActionTextColor(Color.parseColor("#FFFFFF")).show();
     }
 
     @Override

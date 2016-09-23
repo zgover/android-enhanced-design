@@ -1,0 +1,11 @@
+<tabs>
+	<tab
+		id="@+id/tab_favorites"
+		title="All" />
+	<tab
+		id="@+id/tab_nearby"
+		title=" 30" />
+	<tab
+		id="@+id/tab_friends"
+		title=" 30" />
+</tabs>
