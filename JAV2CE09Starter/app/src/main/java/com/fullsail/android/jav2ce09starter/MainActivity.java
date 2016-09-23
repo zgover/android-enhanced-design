@@ -123,4 +123,9 @@ public class MainActivity extends AppCompatActivity implements
     public void onNothingSelected(AdapterView<?> adapterView) {
 
     }
+
+    public void addPerson(View view) {
+        Intent intent = new Intent(this, FormActivity.class);
+        startActivityForResult(intent, REQUEST_FORM);
+    }
 }
