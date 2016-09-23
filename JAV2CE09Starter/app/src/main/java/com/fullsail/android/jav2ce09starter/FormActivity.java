@@ -2,7 +2,9 @@ package com.fullsail.android.jav2ce09starter;
 
 import android.app.AlertDialog;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -23,6 +25,17 @@ public class FormActivity extends AppCompatActivity {
                     .replace(R.id.container, fragment, PersonFormFragment.TAG)
                     .commit();
         }
+
+        // Configure the custom toolbar
+        Toolbar tb = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(tb);
+
+        final ActionBar ab = getSupportActionBar();
+
+        ab.setTitle("Add Person");
+        ab.setHomeAsUpIndicator(R.mipmap.ic_launcher);
+        ab.setDisplayShowHomeEnabled(true);
+        ab.setDisplayHomeAsUpEnabled(true);
     }
 
     @Override
